@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digitalclock</title>
+    <style>
+        html,body{margin: 0;padding: 0;}
+    .digitalclock {
+    
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+  font-size: 10em;
+}
+    
+    </style>
+</head>
+
+<body>
+    <main id="clock"  class="digitalclock">
+
+    </main>
+    <script>
+        function time(){
+            let datetime = new Date();
+            let hours = datetime.getHours();
+            let minutes = datetime.getMinutes();
+            let seconds = datetime.getSeconds();
+            let AmPm ="Am";
+            if (hours > 12){
+                hours = hours -12;
+                AmPm = "Pm" ;
+                
+            }
+           if(minutes <10){
+              minutes = "0"+ minutes;
+           }
+           if( seconds<10){
+            seconds = "0"+ seconds;
+           }
+
+           let currenttime = `${hours}:${minutes}:${seconds}:${AmPm}`;
+
+
+
+           document.getElementById("clock").innerHTML = currenttime;
+
+           setTimeout(time , 1000);
+            
+    
+
+
+          
+
+
+        }
+
+        time();
+    </script>
+    
+</body>
+</html>
